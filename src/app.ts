@@ -1,0 +1,53 @@
+import express from "express";
+import * as bodyparser from "body-parser";
+import cors from "cors";
+// import fileUpload from "express-fileupload" ;
+import { EquipeRoutes } from "./routes/EquipeController";
+import { EventsRoutes } from "./routes/EventsController";
+import { GroupeRoutes } from "./routes/GroupeController";
+import { CategoriesRoutes } from "./routes/CategoriesController";
+import { PartnerRoutes } from "./routes/PartnerController";
+import { ScoreRoutes } from "./routes/ScoreController";
+import { MatchRoutes } from "./routes/MatchController";
+import { AuthRoutes } from "./routes/AuthController";
+import { AdminRoutes } from "./routes/AdminController";
+import { UserRoutes } from "./routes/userController";
+import { EmployeeRoutes } from "./routes/EmployeeController";
+import { PronosticsRoutes } from "./routes/PronosticController";
+import { DrawRoutes } from "./routes/DrawControlles";
+import { CommercialRoutes } from "./routes/CommercialController";
+import { OptionsRoutes } from "./routes/OptionsController";
+import { HistoriqueRoutes } from "./routes/historqueCommercial";
+import { SoldeRoutes } from "./routes/SoldeController";
+import initScheduledJobs from "./middlewares/scheduledFunctions";
+import {initScheduledJobsError} from "./middlewares/scheduledFunctions";
+import {QuizRoutes} from "./routes/QuizController"
+const app = express();
+app.use(cors());
+// app.use(fileUpload());
+app.use(bodyparser.json({ limit: "5000mb" }));
+app.use(bodyparser.urlencoded({ limit: "5000mb", extended: true }));
+// app.use(requestLoggerMiddelware);
+app.use(AdminRoutes);
+app.use(PartnerRoutes);
+app.use(EquipeRoutes);
+app.use(EmployeeRoutes);
+app.use(EventsRoutes);
+app.use(GroupeRoutes);
+app.use(CategoriesRoutes);
+app.use(AuthRoutes);
+app.use(ScoreRoutes);
+app.use(MatchRoutes);
+app.use(UserRoutes);
+app.use(PronosticsRoutes);
+app.use(DrawRoutes);
+app.use(CommercialRoutes);
+app.use(OptionsRoutes);
+app.use(HistoriqueRoutes);
+app.use(SoldeRoutes);
+app.use(QuizRoutes)
+initScheduledJobs();
+initScheduledJobsError()
+app.use(express.static(__dirname + "/nodeMailer"));
+
+export { app };

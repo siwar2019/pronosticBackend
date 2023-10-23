@@ -1,0 +1,85 @@
+// {
+//   "swagger": "2.0",
+//   "info": {
+//     "version": "1.0.0",
+//     "title": "My User Project CRUD",
+//     "description": "My User Project Application API",
+//     "license": {
+//       "name": "MIT",
+//       "url": "https://opensource.org/licenses/MIT"
+//     }
+//   },
+//   "host": "localhost:5000",
+//   "basePath": "/",
+//   "tags": [
+//     {
+//       "name": "Admin",
+//       "description": "API for Admin "
+//     },
+//     {
+//       "name": "Categories",
+//       "description": "API for categories"
+//     }
+//   ],
+//   "schemes": ["http"],
+//   "consumes": ["application/json"],
+//   "produces": ["application/json"],
+//   "paths": {
+//     "/Categories": {
+//       "get": {
+//         "tags": ["Categories"],
+//         "summary": "Get all Categories in system",
+//         "responses": {
+//           "200": {
+//             "description": "OK",
+//             "schema": {
+//               "type": "array"
+//             }
+//           },
+//           "404" : {
+//             "timestamp": "",
+//             "status": 404,
+//             "error": "Not Found",
+//             "message": "Not Found",
+//             "path": "/Categories"
+//           }
+//         }
+//       }
+//     },
+
+//     "/UpdateCategory": {
+//       "put": {
+//         "tags": ["Categories"],
+
+//         "required": ["CategorieId", "Description", "Name"],
+//         "properties": {
+//           "CategorieId": {
+//             "type": "number"
+//           },
+//           "Description": {
+//             "type": "string"
+//           },
+//           "Name": {
+//             "type": "string"
+        
+//           }
+//         } ,
+//         "responses": {
+//             "200": {
+//               "description": "OK",
+//               "schema": {
+//                 "type": "array"
+//               }
+//             }
+//       } ,
+//       "parameters": [
+//         {
+//           "CategorieId": "",
+//           "Name": "",
+//           "description": ""
+        
+//         }
+//       ]
+//     }
+//   }
+// } }
